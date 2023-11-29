@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected  $table = [
+        'name',
+        'unsigned_name',
+    ];
+
+    public function newsType() //lấy ra các newsType thuộc category
+    {
+        return $this->hasMany(NewsType::class);
+    }
+
+    public function news() //lấy ra các news thuộc category
+    {
+        return $this->hasManyThrough(News::class, NewsType::class);
+    }
 }

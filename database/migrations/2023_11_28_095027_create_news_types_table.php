@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('news_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->string('unsigned_name', 255);
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
         });
     }
