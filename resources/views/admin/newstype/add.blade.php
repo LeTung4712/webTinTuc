@@ -24,13 +24,13 @@
                                 <strong>{{ session('message') }}</strong>
                             </div>
                         @endif
-                        <form action="admin/loaitin/them" method="POST">
+                        <form action="admin/newstype/add" method="POST">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <p><label>Chọn Thể Loại</label></p>
                                 <select class="form-control input-width" name="cate">
-                                    @foreach($theloai as $chitiet)
-                                        <option value="{{ $chitiet->id }}">{{ $chitiet->Ten }}</option>
+                                    @foreach($category as $chitiet)
+                                        <option value="{{ $chitiet->id }}">{{ $chitiet->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

@@ -27,16 +27,17 @@ CKEDITOR.editorConfig = function( config )
         //config.entities_latin = false;
         
 
-        config.filebrowserBrowseUrl = 'http://localhost/fckeditor/ckfinder/ckfinder.html';
+        config.filebrowserBrowseUrl = 'http://127.0.0.1:8000/admin_asset/ckfinder/ckfinder.html';
 
-        config.filebrowserImageBrowseUrl = 'http://localhost/fckeditor/ckfinder/ckfinder.html?type=Images';
+        config.filebrowserImageBrowseUrl = 'http://127.0.0.1:8000/admin_asset/ckfinder/ckfinder.html?type=Images';
 
-        config.filebrowserFlashBrowseUrl = 'http://localhost/fckeditor/ckfinder/ckfinder.html?type=Flash';
+        config.filebrowserFlashBrowseUrl = 'http://127.0.0.1:8000/admin_asset/ckfinder/ckfinder.html?type=Flash';
 
-        config.filebrowserUploadUrl = 'http://localhost/fckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+        config.filebrowserUploadUrl = 'http://127.0.0.1:8000/admin_asset/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
 
-        config.filebrowserImageUploadUrl = 'http://localhost/fckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+        config.filebrowserImageUploadUrl = 'http://127.0.0.1:8000/admin_asset/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
 
-        config.filebrowserFlashUploadUrl = 'http://localhost/fckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+        config.filebrowserFlashUploadUrl = 'hhttp://127.0.0.1:8000/admin_asset/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+
 
 };  

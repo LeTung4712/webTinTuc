@@ -27,7 +27,7 @@
                             <strong>{{session('message')}}</strong>
                         </div>
                     @endif
-                        <form action="admin/theloai/them" method="POST">
+                        <form action="admin/category/add" method="POST">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <p><label>Tên Thể Loại</label></p>

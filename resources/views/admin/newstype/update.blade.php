@@ -6,12 +6,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Thể Loại
-                            <small>> {{$loaitin->Ten}}</small>
+                            <small>> {{$newstype->name}}</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="admin/loaitin/sua/{{$loaitin->id}}" method="POST">
+                        <form action="admin/newstype/update/{{$newstype->id}}" method="POST">
                             {{ csrf_field() }}
                             @if(count($errors) > 0)
                                 <div class="alert alert-danger">
@@ -29,12 +29,12 @@
                             <div class="form-group">
                                 <p><label>Chọn Thể Loại</label></p>
                                 <select class="form-control input-width" name="cate">
-                                    @foreach($theloai as $chitiet)
+                                    @foreach($category as $chitiet)
                                         <option 
-                                        @if($loaitin->idTheLoai == $chitiet->id)
+                                        @if($newstype->category_id == $chitiet->id)
                                             {{ 'selected' }}
                                         @endif
-                                        value="{{ $chitiet->id }}">{{ $chitiet->Ten }}</option>
+                                        value="{{ $chitiet->id }}">{{ $chitiet->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -42,12 +42,12 @@
                             <div class="form-group">
                                 <p>
                                     <label>Tên hiện tại của Loại Tin</label>
-                                    <input class="form-control input-width" name="current_scate" value="{{$loaitin->Ten}}" disabled="true" />
+                                    <input class="form-control input-width" name="current_scate" value="{{$newstype->name}}" disabled="true" />
                                 </p>
 
                                 <p>
                                     <label>Thay đổi tên Loại Tin</label>
-                                    <input class="form-control input-width" name="scate_changed" placeholder="Nhập tên mới cho Loại Tin" value="{{ $loaitin->Ten }}" />
+                                    <input class="form-control input-width" name="scate_changed" placeholder="Nhập tên mới cho Loại Tin" value="{{ $newstype->name }}" />
                                 </p>
                             </div>
                             

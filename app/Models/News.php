@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
-    protected  $table = [
+    protected  $fillable = [
         'title',
         'unsigned_title',
         'description',
@@ -17,7 +17,6 @@ class News extends Model
         'author',
         'trending',
         'view',
-        'comment',
         'news_type_id',
     ];
 

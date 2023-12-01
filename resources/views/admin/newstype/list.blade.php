@@ -29,13 +29,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($loaitin as $chitiet)
+                            @foreach($newstype as $chitiet)
                                 <tr class="odd gradeX" align="center">
                                     <td>{{ $chitiet->id }}</td>
-                                    <td>{{ $chitiet->Ten }}</td>
-                                    <td>{{ $chitiet->TenKhongDau }}</td>
-                                    <td>{{ $chitiet->TheLoai->Ten }}</td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i><a href="admin/loaitin/sua/{{ $chitiet->id }}">Sửa</a></td>
+                                    <td>{{ $chitiet->name }}</td>
+                                    <td>{{ $chitiet->unsigned_name }}</td>
+                                    <td>{{ $chitiet->category->name}}</td> 
+                                    <td class="center"><i class="fa fa-pencil fa-fw"></i><a href="admin/newstype/update/{{ $chitiet->id }}">Sửa</a></td>
                                     <td class="center">
                                         <i class="fa fa-trash-o fa-fw"></i>
                                         <input type="hidden" class="hiddenID" value="{{ $chitiet->id }}">
@@ -52,10 +52,10 @@
                                                         <h4 class="modal-title">Xác Nhận</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Bạn muốn xóa Loại Tin: "{{$chitiet->Ten}}"?</p>
+                                                        <p>Bạn muốn xóa Loại Tin: "{{$chitiet->name}}"?</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" data-casetype="loaitin" class="btn btn-default btnConf">Có</button>
+                                                        <button type="button" data-casetype="newstype" class="btn btn-default btnConf">Có</button>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
                                                     </div>
                                                 </div>

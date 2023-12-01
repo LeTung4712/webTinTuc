@@ -6,25 +6,23 @@ $(document).ready(function(){
 		var modal_confirm = modal.find('.btnConf');
 		var case_name = modal_confirm.data('casetype');
 		$(modal_confirm).on('click',function(){
-			if(case_name == 'theloai')
-				window.location.href='admin/theloai/xoa/'+id_value;
-			else if(case_name == 'loaitin')
-				window.location.href='admin/loaitin/xoa/'+id_value;
-			else if(case_name == 'tintuc')
-				window.location.href='admin/tintuc/xoa/'+id_value;
-			else if(case_name == 'binhluan')
-				window.location.href='admin/comment/xoa/'+id_value;
-			else if(case_name == 'slide')
-				window.location.href='admin/slide/xoa/'+id_value;
+			if(case_name == 'category')
+				window.location.href='admin/category/delete/'+id_value;
+			else if(case_name == 'newstype')
+				window.location.href='admin/newstype/delete/'+id_value;
+			else if(case_name == 'news')
+				window.location.href='admin/news/delete/'+id_value;
+			else if(case_name == 'comment')
+				window.location.href='admin/comment/delete/'+id_value;
 			else if(case_name == 'user')
-				window.location.href='admin/user/xoa/'+id_value;
+				window.location.href='admin/user/delete/'+id_value;
 		})
 	});
 
 	$('.catefield').on('change',function(){
 		var cate_id = $(this).val();
 
-		$.get('admin/ajax/layloaitin/'+cate_id,function(data){
+		$.get('admin/ajax/getnewstype/'+cate_id,function(data){
 			if(data == '')
 				$('.subcatefield').html('<option>Không có dữ liệu..</option>');
 			else
@@ -39,9 +37,9 @@ $(document).ready(function(){
 			$('.disabled-field').attr('disabled',false);
 	});
 
-	setInterval(timestamp,1000);
+	setInterval(timestamp,1000); //hàm hiển thị thời gian 
 
-	function timestamp(){
+	function timestamp(){ //hàm hiển thị thời gian
 		$.ajax({
 			url: 'admin/ajax/timestamp',
 			type: 'GET',

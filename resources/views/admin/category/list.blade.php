@@ -12,11 +12,13 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="clearfix"></div>
+
                     @if(session('message'))
                         <div class="alert alert-success">
                             <strong>{{ session('message') }}</strong>
                         </div>
                     @endif
+
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -28,12 +30,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($theloai as $chitiet)
+                            @foreach($categories as $chitiet) 
                                 <tr class="odd gradeX" align="center">
                                     <td>{{ $chitiet->id }}</td>
-                                    <td>{{ $chitiet->Ten }}</td>
-                                    <td>{{ $chitiet->TenKhongDau }}</td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i><a href="admin/theloai/sua/{{ $chitiet->id }}">Sửa</a></td>
+                                    <td>{{ $chitiet->name }}</td>
+                                    <td>{{ $chitiet->unsigned_name }}</td>
+                                    <td class="center"><i class="fa fa-pencil fa-fw"></i><a href="admin/category/update/{{ $chitiet->id }}">Sửa</a></td>
                                     <td class="center">
                                         <i class="fa fa-trash-o fa-fw"></i>
                                         <input type="hidden" class="hiddenID" value="{{ $chitiet->id }}">
@@ -50,11 +52,11 @@
                                                         <h4 class="modal-title">Xác Nhận</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p><strong>Thể Loại "{{$chitiet->Ten}}" hiện đang có tổng cộng {{ count($chitiet->LoaiTin) }} loại tin và {{ count($chitiet->TinTuc) }} tin tức thuộc thể loại này.</strong></p>
-                                                        <p>Bạn có chắc chắn muốn xóa Thể Loại: "{{$chitiet->Ten}}" không?</p>
+                                                        <p><strong>Thể Loại "{{$chitiet->name}}" hiện đang có tổng cộng {{ count($chitiet->newstype) }} loại tin và {{ count($chitiet->news) }} tin tức thuộc thể loại này.</strong></p>
+                                                        <p>Bạn có chắc chắn muốn xóa Thể Loại: "{{$chitiet->name}}" không?</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" data-casetype="theloai" class="btn btn-default btnConf">Có</button>
+                                                        <button type="button" data-casetype="category" class="btn btn-default btnConf">Có</button>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
                                                     </div>
                                                 </div>

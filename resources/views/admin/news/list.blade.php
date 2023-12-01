@@ -21,36 +21,43 @@
                         <thead>
                             <tr align="center">
                                 <th class="text-center">ID</th>
-                                <th class="text-center">Tiêu Đề Tin Tức</th>
+                                <th class="text-center">Tiêu Đề</th>
                                 <th class="text-center">Tóm Tắt</th>
                                 <th class="text-center">Thể Loại</th>
                                 <th class="text-center">Loại Tin</th>
                                 <th class="text-center">Lượt Xem</th>
                                 <th class="text-center">Nổi Bật</th>
+                                <th class="text-center">Lượt bình luận</th>
                                 <th class="text-center">Sửa</th>
                                 <th class="text-center">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($tintuc as $chitiet)
+                            @foreach($news as $chitiet)
                             <tr class="odd gradeX" align="center">
                                 <td>{{ $chitiet->id }}</td>
                                 <td>
-                                    <p>{{ $chitiet->TieuDe }}</p>
-                                    <img width="100px" src="upload/tintuc/{{ $chitiet->Hinh }}">
+                                    <p>{{ $chitiet->title }}</p>
+                                    <img width="100px" src="upload/news/{{ $chitiet->image }}">
                                 </td>
-                                <td>{{ $chitiet->TomTat }}</td>
-                                <td>{{ $chitiet->LoaiTin->TheLoai->Ten }}</td>
-                                <td>{{ $chitiet->LoaiTin->Ten }}</td>
-                                <td>{{ $chitiet->SoLuotXem }}</td>
+                                <td>{{ $chitiet->description }}</></td> 
+                                <td>{{ $chitiet->newstype->category->name }}</td>
+                                <td>{{ $chitiet->newstype->name }}</td>
+                                <td>{{ $chitiet->view }}</td>
                                 <td>
-                                    @if($chitiet->NoiBat == 0)
+                                    @if($chitiet->trending == 0)
                                         {{ 'Không' }}
                                     @else
                                         {{ 'Có' }}
                                     @endif
                                 </td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/tintuc/sua/{{ $chitiet->id }}">Sửa</a></td>
+                                <td class="center">
+                                    <i class="fa fa-pencil fa-fw"></i> <a href="admin/comment/list/{{ $chitiet->id }}">chi tiết</a>
+                                    <br>
+                                    {{ $chitiet->comment->count()  }}
+                                    
+                                </td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/news/update/{{ $chitiet->id }}">Sửa</a></td>
                                 <td class="center">
                                     <i class="fa fa-trash-o  fa-fw"></i>
 
@@ -68,10 +75,10 @@
                                                         <h4 class="modal-title">Xác Nhận</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Bạn muốn xóa Tin Tức: "{{$chitiet->TieuDe}}"?</p>
+                                                        <p>Bạn muốn xóa Tin Tức: "{{$chitiet->title}}"?</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" data-casetype="tintuc" class="btn btn-default btnConf">Có</button>
+                                                        <button type="button" data-casetype="news" class="btn btn-default btnConf">Có</button>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
                                                     </div>
                                                 </div>
