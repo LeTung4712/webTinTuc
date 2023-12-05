@@ -40,7 +40,7 @@
                                     <p>{{ $chitiet->title }}</p>
                                     <img width="100px" src="upload/news/{{ $chitiet->image }}">
                                 </td>
-                                <td>{{ $chitiet->description }}</></td> 
+                                <td>{!! $chitiet->description !!}</></td> 
                                 <td>{{ $chitiet->newstype->category->name }}</td>
                                 <td>{{ $chitiet->newstype->name }}</td>
                                 <td>{{ $chitiet->view }}</td>

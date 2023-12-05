@@ -21,9 +21,20 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('editor', [HomeController::class, 'inx']);
+Route::post('store', [HomeController::class, 'store']);
+
+Route::get('test', [HomeController::class, 'test']);
+//home
+Route::get('/', [HomeController::class, 'index']);
+
+// Route page
+Route::group(['prefix' => 'page'], function () {
+    Route::get('{unsigned_namecate}/{id}/{unsigned_name}', [HomeController::class, 'getNewsByNewsType']);
+    Route::get('{id}/{title}', [HomeController::class, 'getNewsDetail']);
+
 });
+
 // Route admin
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'index']);
@@ -62,7 +73,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('add', [NewsController::class, 'handleAddNews']);
         Route::post('update/{id}', [NewsController::class, 'handleUpdateNews']);
         Route::post('delete/{id}', [NewsController::class, 'handleDeleteNews']);
-        
+
     });
 
     //thao tac voi view user
@@ -77,12 +88,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('list/{id}', [CommentController::class, 'listComment']);
     });
     // Route group Ajax
-	Route::group(['prefix'=>'ajax'],function(){
-		Route::get('getnewstype/{id}', [AjaxController::class, 'getNewsTypeByCategoryId']);
-		Route::get('timestamp', [AjaxController::class, 'timestamp']);
-	});
-});
-// Route user
-Route::group(['prefix' => 'user'], function () {
-    Route::get('/', [HomeController::class, 'index']);
+    Route::group(['prefix' => 'ajax'], function () {
+        Route::get('getnewstype/{id}', [AjaxController::class, 'getNewsTypeByCategoryId']);
+        //Route::get('timestamp', [AjaxController::class, 'timestamp']);
+    });
 });
