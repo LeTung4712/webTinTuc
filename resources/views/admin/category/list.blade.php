@@ -25,6 +25,7 @@
                                 <th class="text-center">ID</th>
                                 <th class="text-center">Tên Thể Loại</th>
                                 <th class="text-center">Tên Không Dấu</th>
+                                <th class="text-center">Hình ảnh thumbnail</th>
                                 <th class="text-center">Sửa</th>
                                 <th class="text-center">Xóa</th>
                             </tr>
@@ -35,6 +36,7 @@
                                     <td>{{ $chitiet->id }}</td>
                                     <td>{{ $chitiet->name }}</td>
                                     <td>{{ $chitiet->unsigned_name }}</td>
+                                    <td><img src="upload/category/{{ $chitiet->image }}" style="width: 300px; height: 60px; object-fit: cover;"></td>
                                     <td class="center"><i class="fa fa-pencil fa-fw"></i><a href="admin/category/update/{{ $chitiet->id }}">Sửa</a></td>
                                     <td class="center">
                                         <i class="fa fa-trash-o fa-fw"></i>

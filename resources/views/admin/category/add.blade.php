@@ -27,11 +27,16 @@
                             <strong>{{session('message')}}</strong>
                         </div>
                     @endif
-                        <form action="admin/category/add" method="POST">
+                        <form action="admin/category/add" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <p><label>Tên Thể Loại</label></p>
                                 <input class="form-control input-width" name="cate_name" placeholder="Nhập tên Thể Loại.." />
+                            </div>
+
+                            <div class="form-group">
+                                <p><label>Thêm Hình Ảnh Thumbnail</label></p>
+                                <input type="file" class="form-control" name="cate_image">
                             </div>
                             
                             <button type="submit" class="btn btn-default">Thêm</button>

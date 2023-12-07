@@ -9,32 +9,29 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
-                <a href="/" class="nav-item nav-link active">Trang chủ</a>
+                <a href="{{ route('home') }}" class="nav-item nav-link active">Trang chủ</a>
                 
                 @foreach($data['category'] as $category)
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ $category->name }}</a>
+                            <a href="{{ route('category',['unsigned_name'=>$category->unsigned_name]) }}" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                {{ $category->name }}
+                            </a>
                             @if($category->newsType->count() > 0)
                             <div class="dropdown-menu rounded-0 m-0">
                                 @foreach($category->newsType as $newstype)
-                                <a href="page/{{ $category->unsigned_name }}/{{ $newstype->id }}/{{ $newstype->unsigned_name }}" class="dropdown-item">{{ $newstype->name }}</a>
+                                <a href="{{ route('newstype',['unsigned_namecate'=>$category->unsigned_name,'unsigned_name'=>$newstype->unsigned_name]) }}" class="dropdown-item">
+                                    {{ $newstype->name }}
+                                </a>
                                 @endforeach
                             </div>
                             @endif
                         </div>
                 @endforeach
 
-
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="contact.html" class="nav-item nav-link">LIÊN HỆ</a>
             </div>
             <!-- Search Start -->
-            <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
-                <input type="text" class="form-control" placeholder="Nhập từ khóa">
-                <div class="input-group-append">
-                    <button class="input-group-text text-secondary"><i
-                            class="fa fa-search"></i></button>
-                </div>
-            </div>
+            @include('user.page.component.search-box')
             <!-- Search End -->
         </div>
     </nav>

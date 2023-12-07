@@ -37,6 +37,14 @@
                                     <input class="form-control input-width" name="cate_changed" placeholder="Nhập tên mới cho Thể Loại" />
                                 </p>
                             </div>
+
+                            <div class="form-group">
+                                <p><label>Thêm Hình Ảnh</label></p>
+                                <p>
+                                    <img width="400px" src="upload/category/{{ $category->image }}">
+                                </p>
+                                <input type="file" class="form-control" name="cate_img_changed">
+                            </div>
                             
                             <button type="submit" class="btn btn-default">Thực hiện</button>
 

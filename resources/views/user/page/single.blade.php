@@ -4,10 +4,14 @@
 <div class="container-fluid">
     <div class="container">
         <nav class="breadcrumb bg-transparent m-0 p-0">
-            <a class="breadcrumb-item" href="">Trang chủ</a>
-            <a class="breadcrumb-item" href="#">{{ $news->newsType->category->name }}</a>
-            <a class="breadcrumb-item" href="page/{{ $news->newsType->category->unsigned_name }}/{{ $news->newsType->id }}/{{ $news->newsType->unsigned_name }}">{{ $news->newsType->name }}</a>
-            <span class="breadcrumb-item active">{{ $news->title }}</span>
+            <a class="breadcrumb-item" href="{{ route('home') }}">Trang chủ</a>
+            <a class="breadcrumb-item" href="{{ route('category',['unsigned_name'=>$news->newsType->category->unsigned_name]) }}">
+                {{ $news->newsType->category->name }}
+            </a>
+            <a class="breadcrumb-item" href="{{ route('newstype',['unsigned_namecate'=>$news->newsType->category->unsigned_name,'unsigned_name'=>$news->newsType->unsigned_name]) }}">
+                {{ $news->newsType->name }}
+            </a>
+            <span text-overflow="ellipsis" class="breadcrumb-item active">{{ $news->title }}</span>
         </nav>
     </div>
 </div>
@@ -25,11 +29,9 @@
                     <img class="img-fluid w-100" src="upload/news/{{ $news->image }}" style="object-fit: cover;">
                     <div class="overlay position-relative bg-light">
                         <div class="mb-3">
-                            <a href="">{{ $news->newsType->name }}</a>
-                            <span class="px-1">/</span>
-                            <span>{{ $news->created_at->toFormattedDateString(); }}</span>
-                            <span class="px-2"></span>
-                            <span >by {{ $news->author }}</span>
+                            <span >{{ $news->author }}</span>
+                            <span class="px-1">|</span>
+                            <span>{{ $news->created_at->toFormattedDateString(); }}</span>                            
                         </div>
                         <div class= "mb-3">
 
@@ -48,6 +50,7 @@
                         </div>
                         <div>
                             <h3 class="mb-3">{{ $news->title }}</h3>
+                            <h1 class="mb-3">{!! $news->description !!}</h1>
                             <p class="mb-3">{!! $news->content !!}</p>
                         </div>
                     </div>

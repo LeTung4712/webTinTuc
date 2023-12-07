@@ -5,7 +5,8 @@
     <div class="container">
         <nav class="breadcrumb bg-transparent m-0 p-0">
             <a class="breadcrumb-item" href="{{ route('home') }}">Trang chủ</a>
-            <span class="breadcrumb-item active" href="">{{ $category->name }}</span>
+            <a class="breadcrumb-item" href="{{ route('category',['unsigned_name'=>$newstype->category->unsigned_name]) }}">{{ $newstype->category->name }}</a>
+            <span class="breadcrumb-item active">{{ $newstype->name }}</span>
         </nav>
     </div>
 </div>
@@ -18,7 +19,11 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="row">
-                    
+                    <div class="col-12">
+                        <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+                            <h3 class="m-0">{{ $newstype->name }}</h3>
+                        </div>
+                    </div>
                     <!-- News Start -->
                     @foreach($news as $news)
                     <div class="col-lg-6">
@@ -26,8 +31,8 @@
                             <img class="img-fluid w-100" src="upload/news/{{ $news->image }}" style="object-fit: cover;" style='height:280px;'>
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 14px;">
-                                    <a href="{{ $news->newsType->category->unsigned_name }}/{{ $news->newsType->id }}/{{ $news->newstype->unsigned_name }}">
-                                        {{ $news->newstype->name }}
+                                    <a href="{{ route('newstype',['unsigned_namecate'=>$news->newsType->category->unsigned_name,'unsigned_name'=>$news->newsType->unsigned_name]) }}">
+                                        {{ $newstype->name }}
                                     </a>
                                     <span class="px-1">/</span>
                                     <span>{{ $news->created_at->toFormattedDateString(); }}</span>
@@ -35,13 +40,12 @@
                                 <a class="h4" href="{{ route('newsdetail',['unsigned_title'=>changeTitle($news->title),'created_at'=>$news->created_at,'id'=>$news->id]) }}">
                                     {{ $news->title }}
                                 </a>
-                                <p class="m-0" font-size="13px" color="#888">{!! $news->description !!}</p>
+                                <p class="m-0">{!! $news->description !!}</p>
                             </div>
                         </div>
                     </div>
                     @endforeach
                     <!-- News End -->
-                    
                 </div>
                 <!-- Ads Start -->
                 <div class="mb-3">
@@ -95,7 +99,6 @@
             </div>
 
             <div class="col-lg-4 pt-3 pt-lg-0">
-                
                 <!-- Popular News Start -->
                 @include('user.page.component.trending-news')
                 <!-- Popular News End -->

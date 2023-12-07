@@ -23,17 +23,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('editor', [HomeController::class, 'inx']);
 Route::post('store', [HomeController::class, 'store']);
-
 Route::get('test', [HomeController::class, 'test']);
+
 //home
-Route::get('/', [HomeController::class, 'index']);
-
-// Route page
-Route::group(['prefix' => 'page'], function () {
-    Route::get('{unsigned_namecate}/{id}/{unsigned_name}', [HomeController::class, 'getNewsByNewsType']);
-    Route::get('{id}/{title}', [HomeController::class, 'getNewsDetail']);
-
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+//trang chi tiết danh mục
+Route::get('{unsigned_name}.chn', [HomeController::class, 'getNewsByCategory'])->name('category');
+//trang chi tiết loại tin
+Route::get('{unsigned_namecate}/{unsigned_name}.chn', [HomeController::class, 'getNewsByNewsType'])->name('newstype');
+//trang chi tiết bài viết
+Route::get('{unsigned_title}/{created_at}/{id}.chn', [HomeController::class, 'getNewsDetail'])->name('newsdetail');
+//trang kết quả tìm kiếm
+Route::get('v1/page/v2/search.chn', [HomeController::class, 'search'])->name('search');
 
 // Route admin
 Route::group(['prefix' => 'admin'], function () {

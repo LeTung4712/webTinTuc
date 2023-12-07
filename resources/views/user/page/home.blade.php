@@ -11,9 +11,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <!-- Breaking News Start -->
-                @include('user.page.component.breaking-news')
-                <!-- Breaking News End -->
+                <!-- weekly-highlight-news Start -->
+                @include('user.page.component.weekly-highlight-news')
+                <!-- weekly-highlight-news End -->
 
                 <!-- Ads Start -->
                 <div class="mb-3 pb-3">

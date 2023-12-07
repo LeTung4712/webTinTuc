@@ -11,6 +11,7 @@ class Category extends Model
     protected  $fillable = [ 
         'name',
         'unsigned_name',
+        'image',
     ];
 
     public function newsType() //lấy ra các newsType thuộc category

@@ -30,15 +30,19 @@ class NewsTypeController extends Controller
 
     public function handleAddNewsType(Request $request)
     {
+        //kiểm tra trùng lăp trong bảng news_type với cùng category_id
+        $check = NewsType::where('category_id', $request->cate)->where('name', $request->sub_cate)->first();
+        if($check){
+            return redirect('admin/newstype/add')->with('message', 'Loại Tin đã tồn tại, vui lòng nhập tên khác!');
+        }
         $this->validate($request,
             [
                 'cate' => 'required',
-                'sub_cate' => 'required|unique:news_types,name|min:3|max:100',
+                'sub_cate' => 'required:news_types,name|min:3|max:100',
             ],
             [
                 'cate.required' => 'Vui lòng chọn Thể Loại!',
                 'sub_cate.required' => 'Bạn chưa nhập tên Loại Tin!',
-                'sub_cate.unique' => 'Tên Loại Tin đã tồn tại, vui lòng nhập tên khác!',
                 'sub_cate.min' => 'Tên Loại Tin gồm ít nhất 3 ký tự!',
                 'sub_cate.max' => 'Tên Loại Tin gồm tối đa 100 ký tự!',
             ]);

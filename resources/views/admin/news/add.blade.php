@@ -54,7 +54,7 @@
 
                             <div class="form-group">
                                 <p><label>Tiêu Đề</label></p>
-                                <input type="text" class="form-control input-width" name="article_title" placeholder="Nhập Tiêu Đề Tin Tức" value="{{ old('article_title') }}" />
+                                <input type="text" class="form-control" style="with:150px" word-wrap="normal" name="article_title" placeholder="Nhập Tiêu Đề Tin Tức" value="{{ old('article_title') }}" />
                             </div>
 
                             <div class="form-group">
