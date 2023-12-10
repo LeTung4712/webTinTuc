@@ -25,9 +25,11 @@ class HomeController extends Controller
     {
         //lấy 6 bài mới nhất
         $latestNews = News::orderBy('created_at', 'desc')->limit(6)->get();
+        //lấy 6 bài tiêu điểm tuần
+        $weekNews = News::where('created_at', '>=', Carbon::now()->subWeeks(1))->orderBy('view', 'desc')->limit(6)->get();
         //lấy 10 bài đừng bỏ lỡ
         $featuredNews = News::orderBy('created_at', 'desc')->limit(10)->get();
-        return view('user.page.home', ['latestNews' => $latestNews, 'featuredNews' => $featuredNews]);
+        return view('user.page.home', ['latestNews' => $latestNews, 'featuredNews' => $featuredNews, 'weekNews' => $weekNews]);
     }
 
     public function getNewsByCategory(Request $request)

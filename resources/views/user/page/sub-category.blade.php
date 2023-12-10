@@ -28,9 +28,9 @@
                     @foreach($news as $news)
                     <div class="col-lg-6">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="upload/news/{{ $news->image }}" style="object-fit: cover;" style='height:280px;'>
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
+                            <img class="img-fluid w-100" src="upload/news/{{ $news->image }}" style="height:280px; object-fit: cover;">
+                            <div class="overlay position-relative bg-light" style="height: 360px;">
+                                <div class="mt-3" style="font-size: 14px;">
                                     <a href="{{ route('newstype',['unsigned_namecate'=>$news->newsType->category->unsigned_name,'unsigned_name'=>$news->newsType->unsigned_name]) }}">
                                         {{ $newstype->name }}
                                     </a>

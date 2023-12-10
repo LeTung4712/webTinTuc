@@ -50,7 +50,7 @@
                         </div>
                         <div>
                             <h3 class="mb-3">{{ $news->title }}</h3>
-                            <h1 class="mb-3">{!! $news->description !!}</h1>
+                            <h4 class="mb-3">{!! $news->description !!}</h4>
                             <p class="mb-3">{!! $news->content !!}</p>
                         </div>
                     </div>

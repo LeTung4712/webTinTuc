@@ -10,9 +10,9 @@
     <div class="col-lg-6">
         <!--cột trái trên-->
         <div class="position-relative mb-3">
-            <img class="img-fluid w-100" src="upload/news/{{$latestNews[0]->image}}" style="object-fit: cover;">
-            <div class="overlay position-relative bg-light">
-                <div class="mb-2" style="font-size: 14px;">
+            <img class="img-fluid w-100 " src="upload/news/{{$latestNews[0]->image}}" style="height: 200px; object-fit: cover;">
+            <div class="overlay position-relative bg-light" style="height: 330px;">
+                <div class=" mt-2" style="font-size: 14px;">
                     <a href="{{ route('newstype',['unsigned_namecate'=>$latestNews[0]->newsType->category->unsigned_name,'unsigned_name'=>$latestNews[0]->newsType->unsigned_name]) }}">
                         {{ $latestNews[0]->newsType->name }}</a>
                     <span class="px-1">/</span>
@@ -25,16 +25,16 @@
         </div>
         <!--cột trái dưới-->
         <div class="d-flex mb-3">
-            <img src="upload/news/{{$latestNews[1]->image}}" style="width: 100px; height: 100px; object-fit: cover;">
+            <img src="upload/news/{{$latestNews[3]->image}}" style="width: 100px; height: 100px; object-fit: cover;">
             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                 <div class="mb-1" style="font-size: 13px;">
-                    <a href="{{ route('newstype',['unsigned_namecate'=>$latestNews[1]->newsType->category->unsigned_name,'unsigned_name'=>$latestNews[1]->newsType->unsigned_name]) }}">
-                        {{ $latestNews[1]->newsType->name }}</a>
+                    <a href="{{ route('newstype',['unsigned_namecate'=>$latestNews[3]->newsType->category->unsigned_name,'unsigned_name'=>$latestNews[3]->newsType->unsigned_name]) }}">
+                        {{ $latestNews[3]->newsType->name }}</a>
                     <span class="px-1">/</span>
-                    <span>{{ $latestNews[1]->created_at->toFormattedDateString(); }}</span>
+                    <span>{{ $latestNews[3]->created_at->toFormattedDateString(); }}</span>
                 </div>
-                <a class="h6 m-0" href="{{ route('newsdetail',['unsigned_title'=>changeTitle($latestNews[1]->title),'created_at'=>$latestNews[1]->created_at,'id'=>$latestNews[1]->id]) }}">
-                    {{ $latestNews[1]->title }}</a>
+                <a class="h6 m-0" href="{{ route('newsdetail',['unsigned_title'=>changeTitle($latestNews[3]->title),'created_at'=>$latestNews[3]->created_at,'id'=>$latestNews[3]->id]) }}">
+                    {{ $latestNews[3]->title }}</a>
             </div>
         </div>
         <div class="d-flex mb-3">
@@ -56,17 +56,17 @@
     <div class="col-lg-6">
         <!--cột phải trên-->
         <div class="position-relative mb-3">
-            <img class="img-fluid w-100" src="upload/news/{{$latestNews[3]->image}}" style="object-fit: cover;">
-            <div class="overlay position-relative bg-light">
-                <div class="mb-2" style="font-size: 14px;">
-                    <a href="{{ route('newstype',['unsigned_namecate'=>$latestNews[3]->newsType->category->unsigned_name,'unsigned_name'=>$latestNews[3]->newsType->unsigned_name]) }}">
-                        {{ $latestNews[3]->newsType->name }}</a>
+            <img class="img-fluid w-100" src="upload/news/{{$latestNews[1]->image}}" style="height: 200px; object-fit: cover;">
+            <div class="overlay position-relative bg-light" style="height: 330px;">
+                <div class="mt-2" style="font-size: 14px;">
+                    <a href="{{ route('newstype',['unsigned_namecate'=>$latestNews[1]->newsType->category->unsigned_name,'unsigned_name'=>$latestNews[1]->newsType->unsigned_name]) }}">
+                        {{ $latestNews[1]->newsType->name }}</a>
                     <span class="px-1">/</span>
-                    <span>{{ $latestNews[3]->created_at->toFormattedDateString(); }}</span>
+                    <span>{{ $latestNews[1]->created_at->toFormattedDateString(); }}</span>
                 </div>
-                <a class="h4" href="{{ route('newsdetail',['unsigned_title'=>changeTitle($latestNews[3]->title),'created_at'=>$latestNews[3]->created_at,'id'=>$latestNews[3]->id]) }}">
-                    {{ $latestNews[3]->title }}</a>
-                <p class="m-0">{!! $latestNews[3]->description !!}</p>
+                <a class="h4" href="{{ route('newsdetail',['unsigned_title'=>changeTitle($latestNews[1]->title),'created_at'=>$latestNews[1]->created_at,'id'=>$latestNews[1]->id]) }}">
+                    {{ $latestNews[1]->title }}</a>
+                <p class="m-0">{!! $latestNews[1]->description !!}</p>
             </div>
         </div>
         <!--cột phải dưới-->

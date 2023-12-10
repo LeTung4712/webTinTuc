@@ -36,8 +36,14 @@ Route::get('{unsigned_title}/{created_at}/{id}.chn', [HomeController::class, 'ge
 //trang kết quả tìm kiếm
 Route::get('v1/page/v2/search.chn', [HomeController::class, 'search'])->name('search');
 
+Route::get('admin/login', [UserController::class, 'Login']);
+
+Route::post('admin/login', [UserController::class, 'handleLogin']);
+
+Route::get('admin/logout', [UserController::class, 'Logout']);
+
 // Route admin
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::get('/', [AdminController::class, 'index']);
 
     //thao tac voi category

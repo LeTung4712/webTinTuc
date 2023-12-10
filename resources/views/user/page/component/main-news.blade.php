@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
-                    @foreach($data['trending'] as $news)
+                    @foreach($latestNews as $news)
                     <div class="position-relative overflow-hidden" style="height: 435px;">
                         <img class="img-fluid h-100" src="upload/news/{{ $news->image }}" style="object-fit: cover;">
                         <div class="overlay">
