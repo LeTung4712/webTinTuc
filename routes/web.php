@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\NewsTypeController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\HomePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,20 +21,20 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('editor', [HomeController::class, 'inx']);
-Route::post('store', [HomeController::class, 'store']);
-Route::get('test', [HomeController::class, 'test']);
+Route::get('editor', [HomePageController::class, 'inx']);
+Route::post('store', [HomePageController::class, 'store']);
+Route::get('test', [HomePageController::class, 'test']);
 
 //home
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomePageController::class, 'index'])->name('home');
 //trang chi tiết danh mục
-Route::get('{unsigned_name}.chn', [HomeController::class, 'getNewsByCategory'])->name('category');
+Route::get('{unsigned_name}.chn', [HomePageController::class, 'getNewsByCategory'])->name('category');
 //trang chi tiết loại tin
-Route::get('{unsigned_namecate}/{unsigned_name}.chn', [HomeController::class, 'getNewsByNewsType'])->name('newstype');
+Route::get('{unsigned_namecate}/{unsigned_name}.chn', [HomePageController::class, 'getNewsByNewsType'])->name('newstype');
 //trang chi tiết bài viết
-Route::get('{unsigned_title}/{created_at}/{id}.chn', [HomeController::class, 'getNewsDetail'])->name('newsdetail');
+Route::get('{unsigned_title}/{created_at}/{id}.chn', [HomePageController::class, 'getNewsDetail'])->name('newsdetail');
 //trang kết quả tìm kiếm
-Route::get('v1/page/v2/search.chn', [HomeController::class, 'search'])->name('search');
+Route::get('v1/page/v2/search.chn', [HomePageController::class, 'search'])->name('search');
 
 Route::get('admin/login', [UserController::class, 'Login']);
 

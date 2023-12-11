@@ -9,7 +9,7 @@ use App\Models\NewsType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class HomePageController extends Controller
 {
     public function __construct(){ // Trang chủ và trang liên hệ đều cần dữ liệu của thanh menu để hiển thị ra, nên ta dùng view share để cả 2 trang đều có biến này để sử dụng.
 		$data = [
